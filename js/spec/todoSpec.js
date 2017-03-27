@@ -10,7 +10,7 @@ describe('Todo', function() {
         newTodo = new Todo(options);
     });
 
-    it('should should be defined and represent an object', function() {
+    it('should be defined and represent an object', function() {
         expect(typeof newTodo).toBeDefined();
         expect(typeof newTodo).toBe('object');
     });
@@ -26,6 +26,25 @@ describe('Todo', function() {
 
         it('should call the `Constructor` with the keyword `new`', function() {
             expect(newTodo).toEqual(new Todo(options));
+        });
+    });
+
+    describe('`createTodo` prototype method', function() {
+        it('should be defined', function() {
+            expect(newTodo.createTodo).toBeDefined();
+        });
+
+        describe('when invoked', function() {
+            var fakeListContent = 'My Pretty List',
+                fakeLi = '<li>' + fakeListContent+ '</li>';
+
+            beforeEach(function() {
+                spyOn(newTodo, 'createTodo').and.returnValue(fakeLi);
+            });
+
+            it('should return a `list`', function() {
+                expect(newTodo.createTodo()).toBe(fakeLi);
+            });
         });
     });
 });
