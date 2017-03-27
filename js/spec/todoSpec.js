@@ -47,4 +47,21 @@ describe('Todo', function() {
             });
         });
     });
+
+    describe('`addTodoTask` prototype method', function() {
+        it('should be defined', function() {
+            expect(newTodo.addTodoTask).toBeDefined();
+        });
+
+        describe('when invoked', function() {
+            beforeEach(function() {
+                spyOn(newTodo, 'createTodo');
+            });
+
+            it('should call `this.createTodo` method', function() {
+                newTodo.addTodoTask();
+                expect(newTodo.createTodo).toHaveBeenCalled();
+            });
+        });
+    });
 });

@@ -31,4 +31,10 @@ Todo.prototype.createTodo = function(todoTask) {
     return li;
 };
 
+Todo.prototype.addTodoTask = function() {
+    var task = this.createTodo('New todo item');
+};
+
+
+
 module.exports = Todo;
