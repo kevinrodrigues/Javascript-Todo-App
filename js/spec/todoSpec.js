@@ -49,19 +49,30 @@ describe('Todo', function() {
     });
 
     describe('`addTodoTask` prototype method', function() {
+        var todoTask = 'I need to do something today',
+            myCreateTodoSpy;
+
         it('should be defined', function() {
             expect(newTodo.addTodoTask).toBeDefined();
         });
 
         describe('when invoked', function() {
             beforeEach(function() {
+                myCreateTodoSpy = jasmine.createSpy('createTodo');
+                myCreateTodoSpy(todoTask);
                 spyOn(newTodo, 'createTodo');
             });
 
             it('should call `this.createTodo` method', function() {
                 newTodo.addTodoTask();
-                expect(newTodo.createTodo).toHaveBeenCalled();
+                expect(myCreateTodoSpy.calls.mostRecent().args[0]).toMatch(todoTask);
             });
+        });
+    });
+
+    describe('`editTodoTask`', function() {
+        it('should be defined', function() {
+            expect(newTodo.editTodoTask).toBeDefined();
         });
     });
 });

@@ -22,11 +22,11 @@ Todo.prototype.createTodo = function(todoTask) {
     buttonDelete.className = 'delete';
     label.innerText = todoTask;
 
-    listItem.appendChild(inputCheckbox);
-    listItem.appendChild(label);
-    listItem.appendChild(inputEdit);
-    listItem.appendChild(buttonEdit);
-    listItem.appendChild(buttonDelete);
+    li.appendChild(inputCheckbox);
+    li.appendChild(label);
+    li.appendChild(inputEdit);
+    li.appendChild(buttonEdit);
+    li.appendChild(buttonDelete);
 
     return li;
 };
@@ -35,6 +35,9 @@ Todo.prototype.addTodoTask = function() {
     var task = this.createTodo('New todo item');
 };
 
+Todo.prototype.editTodoTask = function() {
 
+
+};
 
 module.exports = Todo;
